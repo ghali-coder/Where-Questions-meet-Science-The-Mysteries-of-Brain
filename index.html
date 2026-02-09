@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>WHERE QUESTIONS MEET SCIENCE: The Mysteries of the Brain</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#121a33;
+      --text:#e7ecff;
+      --muted:#b7c0ff;
+      --accent:#7c5cff;
+      --accent2:#2dd4bf;
+      --shadow:0 20px 40px rgba(0,0,0,.35);
+      --radius:22px;
+      --line: rgba(255,255,255,.12);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(124,92,255,.25), transparent 55%),
+        radial-gradient(900px 500px at 80% 20%, rgba(45,212,191,.18), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    .container{
+      width:min(1100px,92%);
+      margin:auto;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:65vh;
+      display:flex;
+      align-items:center;
+      padding:40px 0;
+    }
+
+    .hero .container{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:60px;
+    }
+
+    .kicker{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      letter-spacing:.2em;
+      font-weight:900;
+      font-size:.85rem;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,.15);
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:clamp(2.4rem,5vw,3.6rem);
+      margin:0;
+    }
+
+    .accent{ color:var(--accent); }
+
+    /* BRAIN */
+    .hero-3d{
+      margin-top:30px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      perspective:1400px;
+    }
+
+    .brain-3d{
+      width:360px;
+      transform-style:preserve-3d;
+      filter: drop-shadow(0 40px 65px rgba(0,0,0,.65));
+      animation: float3d 4.5s ease-in-out infinite;
+    }
+
+    @keyframes float3d{
+      0%,100%{ transform: rotateX(14deg) rotateY(-22deg) translateZ(45px); }
+      50%{ transform: rotateX(20deg) rotateY(-10deg) translateZ(55px); }
+    }
+
+    /* CARDS */
+    .section{ padding:80px 0; }
+
+    .section h2{
+      text-align:center;
+      margin-bottom:50px;
+      font-size:2rem;
+    }
+
+    .summary-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:22px;
+      perspective:1200px;
+    }
+
+    .summary-card{
+      height:300px;
+      position:relative;
+      transform-style:preserve-3d;
+      transition:transform .9s cubic-bezier(.4,.2,.2,1);
+      cursor:pointer;
+    }
+
+    .summary-card:hover{ transform:rotateY(180deg); }
+
+    .card-face{
+      position:absolute;
+      inset:0;
+      padding:26px;
+      border-radius:var(--radius);
+      backface-visibility:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .card-front{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#fff;
+      text-align:center;
+    }
+
+    .card-front h3{ font-size:1.5rem; margin:0 0 10px; }
+    .card-front p{ font-weight:600; margin:0; }
+
+    .card-back{
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
+      border:1px solid var(--line);
+      transform:rotateY(180deg);
+      font-size:.95rem;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 0;
+      color:var(--muted);
+      font-size:.9rem;
+      border-top:1px solid rgba(255,255,255,.12);
+    }
+
+    @media(max-width:900px){
+      .hero .container{ flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <p class="kicker">WHERE QUESTIONS MEET SCIENCE</p>
+      <h1>The Mysteries of the <span class="accent">Brain</span></h1>
+    </div>
+
+    <div class="hero-3d">
+      <img
+        src="image_2026-02-09_183318917-removebg-preview.png"
+        alt="3D Brain"
+        class="brain-3d"
+      />
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Key Scientific Summaries</h2>
+
+    <div class="summary-grid">
+
+      <!-- Sleep -->
+      <div class="summary-card">
+        <div class="card-face card-front">
+          <h3>Sleep & Dreams</h3>
+          <p>Why the brain never rests</p>
+        </div>
+        <div class="card-face card-back">
+          Sleep is an active biological process. During deep sleep, the brain clears waste
+          through the glymphatic system, restores energy, and strengthens memory.
+          REM sleep supports dreaming, emotional processing, and learning.
+        </div>
+      </div>
+
+      <!-- Learning -->
+      <div class="summary-card">
+        <div class="card-face card-front">
+          <h3>Learning & Memory</h3>
+          <p>The brain rewires itself</p>
+        </div>
+        <div class="card-face card-back">
+          Learning changes the brain through neuroplasticity.
+          Repetition strengthens neural connections,
+          while sleep stabilizes them.
+          Forgetting removes unused pathways to maintain efficiency.
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="summary-card">
+        <div class="card-face card-front">
+          <h3>Social Influence</h3>
+          <p>How others affect us</p>
+        </div>
+        <div class="card-face card-back">
+          Social evaluation activates the amygdala and stress hormones,
+          which can reduce focus.
+          Positive feedback releases dopamine,
+          improving motivation and confidence.
+        </div>
+      </div>
+
+      <!-- Music -->
+      <div class="summary-card">
+        <div class="card-face card-front">
+          <h3>Music & Emotion</h3>
+          <p>Why music moves us</p>
+        </div>
+        <div class="card-face card-back">
+          Music activates the brain’s reward system,
+          regulates stress,
+          synchronizes movement,
+          and stimulates emotional and imaginative brain areas.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 — WHERE QUESTIONS MEET SCIENCE</footer>
+
+</body>
+</html>

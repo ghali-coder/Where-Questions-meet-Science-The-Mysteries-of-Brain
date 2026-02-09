@@ -1,0 +1,30 @@
+const burger = document.getElementById("burger");
+const nav = document.getElementById("nav");
+const year = document.getElementById("year");
+const form = document.getElementById("contactForm");
+const hint = document.getElementById("hint");
+
+year.textContent = new Date().getFullYear();
+
+burger.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  burger.setAttribute("aria-expanded", String(isOpen));
+});
+
+nav.querySelectorAll("a").forEach(a => {
+  a.addEventListener("click", () => {
+    nav.classList.remove("open");
+    burger.setAttribute("aria-expanded", "false");
+  });
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+  const name = (data.get("name") || "").toString().trim();
+  hint.textContent = `Merci ${name || ""}! Message “envoyé” ✅ (démo GitHub Pages).`;
+  form.reset();
+});
+.hero-3d{
+  margin-top: 25px; /* ajuste 10px / 30px comme tu veux */
+}
