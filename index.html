@@ -36,7 +36,6 @@
       margin:auto;
     }
 
-    /* HERO */
     .hero{
       min-height:65vh;
       display:flex;
@@ -70,7 +69,6 @@
 
     .accent{ color:var(--accent); }
 
-    /* BRAIN */
     .hero-3d{
       margin-top:30px;
       display:flex;
@@ -91,7 +89,6 @@
       50%{ transform: rotateX(20deg) rotateY(-10deg) translateZ(55px); }
     }
 
-    /* CARDS */
     .section{ padding:80px 0; }
 
     .section h2{
@@ -153,9 +150,54 @@
       border-top:1px solid rgba(255,255,255,.12);
     }
 
-    @media(max-width:900px){
-      .hero .container{ flex-direction:column; text-align:center; }
+    /* WINNER OVERLAY */
+    #winnerOverlay{
+      position:fixed;
+      inset:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:rgba(0,0,0,0.75);
+      backdrop-filter:blur(8px);
+      z-index:9999;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .6s ease;
     }
+
+    #winnerOverlay.show{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    #winnerBox{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      padding:60px 80px;
+      border-radius:30px;
+      text-align:center;
+      box-shadow:0 40px 80px rgba(0,0,0,.6);
+    }
+
+    #winnerBox h1{
+      font-size:60px;
+      margin:0;
+      color:white;
+    }
+
+    #revealBtn{
+      position:fixed;
+      bottom:30px;
+      right:30px;
+      padding:12px 25px;
+      border:none;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:white;
+      font-size:14px;
+      cursor:pointer;
+      box-shadow:0 10px 25px rgba(0,0,0,.4);
+    }
+
   </style>
 </head>
 
@@ -184,7 +226,6 @@
 
     <div class="summary-grid">
 
-      <!-- Sleep -->
       <div class="summary-card">
         <div class="card-face card-front">
           <h3>Sleep & Dreams</h3>
@@ -197,7 +238,6 @@
         </div>
       </div>
 
-      <!-- Learning -->
       <div class="summary-card">
         <div class="card-face card-front">
           <h3>Learning & Memory</h3>
@@ -211,7 +251,6 @@
         </div>
       </div>
 
-      <!-- Social -->
       <div class="summary-card">
         <div class="card-face card-front">
           <h3>Social Influence</h3>
@@ -225,7 +264,6 @@
         </div>
       </div>
 
-      <!-- Music -->
       <div class="summary-card">
         <div class="card-face card-front">
           <h3>Music & Emotion</h3>
@@ -243,7 +281,22 @@
   </div>
 </section>
 
-<footer>© 2026 — WHERE QUESTIONS MEET SCIENCE</footer>
+<footer>©️ 2026 — WHERE QUESTIONS MEET SCIENCE</footer>
+
+<!-- WINNER OVERLAY -->
+<div id="winnerOverlay">
+  <div id="winnerBox">
+    <h1>🏆 The Winner Is… GHALI 😎</h1>
+  </div>
+</div>
+
+<button id="revealBtn" onclick="showWinner()">Reveal Winner</button>
+
+<script>
+function showWinner(){
+  document.getElementById("winnerOverlay").classList.add("show");
+}
+</script>
 
 </body>
 </html>
